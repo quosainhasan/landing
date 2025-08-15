@@ -1,232 +1,300 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <title>Travel Agency Marketing Expert - Get More Bookings Through Social Media</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
-      background: #f9fcfe;
-      color: #003366;
-    }
-    .navbar {
-      width: 100%;
-      padding: 28px 0 14px 0;
-      background: #fff;
-      box-shadow: 0 4px 15px rgba(0,74,173,0.07);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 10;
-    }
-    .navbar .logo {
-      font-weight: 800;
-      color: #004aad;
-      font-size: 1.35rem;
-      letter-spacing: 1px;
-    }
-    .nav-menu {
-      margin-left: 60px;
-      display: flex;
-      gap: 32px;
-    }
-    .nav-menu a {
-      color: #004aad;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1.07rem;
-    }
-    .hero {
-      min-height: 87vh;
-      width: 100%;
-      background: linear-gradient(120deg, #53c8f4 50%, #004aad 100%);
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      padding-top: 90px;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .hero-title {
-      font-size: 2.6rem;
-      font-weight: 800;
-      color: #004aad;
-      margin-bottom: 1.7rem;
-      background: rgba(255,255,255,0.93);
-      border-radius: 1.3rem;
-      padding: 1.3rem 2.3rem 1.1rem 2.3rem;
-      display: inline-block;
-      box-shadow: 0 2px 15px rgba(0,74,173,0.05);
-    }
-    .hero-title span {
-      color: #53c8f4;
-      text-shadow: 0 2px 6px #004aad21;
-    }
-    .hero-tagline {
-      font-size: 1.25rem;
-      color: #02639e;
-      margin-bottom: 2.3rem;
-      background: rgba(255,255,255,0.73);
-      padding: 0.75rem 1.6rem;
-      border-radius: 0.7rem;
-      display: inline-block;
-    }
-    .hero-cta {
-      background:#004aad;
-      color:#fff;
-      border:none;
-      border-radius:2rem;
-      padding:1.15rem 2.5rem;
-      font-size:1.1rem;
-      box-shadow:0 4px 18px rgba(0,74,173,0.09);
-      cursor:pointer;
-      font-weight:700;
-      transition: background 0.2s;
-    }
-    .hero-cta:hover {
-      background: #53c8f4;
-      color: #004aad;
-    }
-    /* Airplane Animation */
-    .plane-container {
-      position: absolute;
-      left: 16%;
-      bottom: 5%;
-      width: 300px;
-      height: 130px;
-      z-index: 1;
-      pointer-events: none;
-    }
-    .airplane {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 130px;
-      transition: transform 0.22s cubic-bezier(.45,.8,.42,1.0);
-      will-change: transform;
-    }
-    @media (max-width: 700px) {
-      .plane-container {
-        left: 2%;
-        bottom: 1%;
-        width: 180px;
-        height: 65px;
-      }
-      .airplane {width: 77px;}
-      .hero-content {padding-top:10px;}
-      .hero-title {font-size:1.2rem; padding: 1.1rem 0.5rem;}
-      .hero-tagline {font-size: 1rem;}
-    }
-    /* next section for scroll */
-    .about {
-      min-height: 300px;
-      padding: 70px 0 30px 0;
-      background: #f7fbff;
-    }
-    .section-header h2 {
-      font-size: 2.12rem;
-      font-weight: 700;
-      color: #004aad;
-      letter-spacing: 0.04em;
-    }
-    .about-content {
-      color: #2B4965;
-      font-size: 1.15rem;
-      line-height: 1.7;
-      margin-top: 24px;
-      max-width: 720px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMA DigiMedia - Get More Bookings for Your Travel Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --light-blue: #53c8f4;
+            --dark-blue: #004aad;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, var(--dark-blue), var(--light-blue));
+            position: relative;
+            overflow: hidden;
+        }
+        .plane {
+            position: absolute;
+            bottom: 20%;
+            left: -150px; /* Start off-screen */
+            width: 150px;
+            height: auto;
+            animation: fly 15s linear infinite;
+            z-index: 10;
+        }
+
+        @keyframes fly {
+            0% {
+                transform: translate(0, 0) rotate(15deg);
+            }
+            50% {
+                transform: translate(calc(100vw + 100px), -100px) rotate(5deg);
+            }
+            100% {
+                transform: translate(calc(100vw + 100px), -100px) rotate(5deg);
+                opacity: 0;
+            }
+        }
+        
+        .hero-content {
+            z-index: 20;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800">
 
-  <!-- Navigation -->
-  <div class="navbar">
-    <span class="logo">Travel Marketing Pro</span>
-    <nav class="nav-menu">
-      <a href="#hero">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-md">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-gray-900">
+                    <a href="#" style="color: var(--dark-blue);">AMA DigiMedia</a>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-600 hover:text-[var(--dark-blue)] transition duration-300">About Me</a>
+                    <a href="#services" class="text-gray-600 hover:text-[var(--dark-blue)] transition duration-300">Services</a>
+                    <a href="#why-us" class="text-gray-600 hover:text-[var(--dark-blue)] transition duration-300">Why Us</a>
+                    <a href="#contact" class="text-white px-5 py-2 rounded-full transition duration-300 shadow-sm" style="background-color: var(--dark-blue); hover:opacity: 0.9;">Get in Touch</a>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#about" class="block py-2 text-gray-600 hover:text-[var(--dark-blue)]">About Me</a>
+            <a href="#services" class="block py-2 text-gray-600 hover:text-[var(--dark-blue)]">Services</a>
+            <a href="#why-us" class="block py-2 text-gray-600 hover:text-[var(--dark-blue)]">Why Us</a>
+            <a href="#contact" class="block mt-2 text-white text-center px-5 py-2 rounded-full" style="background-color: var(--dark-blue);">Get in Touch</a>
+        </div>
+    </header>
 
-  <!-- Hero Section with animating plane -->
-  <section class="hero" id="hero">
-    <div class="hero-content">
-      <h1 class="hero-title">
-        I Help Travel Agencies Get <span>More Inquiries &amp; Bookings</span> Through Social Media
-      </h1>
-      <div class="hero-tagline">
-        Stand out online, convert leads, and take your agency to new heights with proven, done-for-you travel marketing.
-      </div>
-      <br>
-      <button class="hero-cta">
-        Get Your Free Social Media Audit
-      </button>
-    </div>
-    <div class="plane-container" id="planeContainer">
-      <!-- SVG airplane icon (you can swap with your preferred SVG, ensure .airplane class exists in code below) -->
-      <svg class="airplane" viewBox="0 0 70 32" xmlns="http://www.w3.org/2000/svg">
-        <g>
-          <polygon fill="#53c8f4" stroke="#004aad" stroke-width="2" points="0,16 62,4 67,6 69,16 67,26 62,28 0,16" />
-          <rect fill="#004aad" x="4" y="12" width="28" height="8" rx="3" />
-          <rect fill="#53c8f4" x="10" y="16" width="20" height="4" rx="2" />
-        </g>
-      </svg>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section id="home" class="h-screen flex items-center justify-center text-white hero-section">
+        <!-- Aeroplane Animation -->
+        <svg class="plane" viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M448 336v-40L288 192V79.2c0-17.7-21.5-26.5-34.5-13.5L216 103V40c0-13.3-10.7-24-24-24s-24 10.7-24 24v63l-37.5-37.5c-12-12-34.5-3.3-34.5 13.5V192L32 296v40l160-48v112l-48 32v32l80-16 80 16v-32l-48-32V288l160 48z"/>
+        </svg>
 
-  <!-- About Me as scroll target -->
-  <section class="about" id="about">
-    <div class="section-header">
-      <h2>My Journey</h2>
-    </div>
-    <div class="about-content">
-      At 17, my first flight ignited a lifelong passion for travel. Years later, my journey led me into social media marketing — and I saw a clear gap: many travel agencies struggled to stand out and secure consistent bookings.
-      <br><br>
-      That’s when it all came together — I merged my marketing expertise with my love for travel. Today, I help travel agencies scale through compelling content, data-driven strategies, and a steady flow of inquiries. For me, it’s more than marketing — it’s about fueling your growth and taking your agency to new heights.
-    </div>
-  </section>
+        <div class="text-center relative hero-content px-4">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">I Help Travel Agencies Get More Inquiries & Bookings</h1>
+            <p class="text-lg md:text-2xl mb-8 text-gray-200">...through strategic social media marketing.</p>
+            <a href="#contact" class="text-[var(--dark-blue)] text-lg font-semibold px-8 py-4 rounded-full transition duration-300 transform hover:scale-105 shadow-lg" style="background-color: var(--light-blue);">GET MORE BOOKINGS</a>
+        </div>
+    </section>
 
-  <!-- JS for scroll-linked airplane animation -->
-  <script>
-    // Animate the airplane "take-off" as page scrolls down
-    window.addEventListener('scroll', function() {
-      var scrolled = window.scrollY || window.pageYOffset;
-      var heroSection = document.getElementById('hero').offsetHeight;
-      var plane = document.querySelector('.airplane');
+    <!-- About Me Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" alt="Marketing expert for travel agencies" class="rounded-2xl shadow-2xl w-full h-auto object-cover">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">My Journey to Fueling Your Growth</h2>
+                    <p class="text-gray-600 mb-4">At 17, my first flight ignited a lifelong passion for travel. Years later, my journey led me into social media marketing, and I saw a clear gap: many travel agencies struggled to stand out and secure consistent bookings.</p>
+                    <p class="text-gray-600 mb-4">That's when it all came together. I merged my marketing expertise with my love for travel.</p>
+                    <p class="text-gray-600 font-semibold" style="color: var(--dark-blue);">Today, I help travel agencies scale through compelling content, data-driven strategies, and a steady flow of inquiries. For me, it's more than marketing—it's about taking your agency to new heights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      // only animate for first 70% of hero section height
-      var maxScroll = heroSection * 0.7;
-      if (scrolled > maxScroll) scrolled = maxScroll;
+    <!-- Why Agencies Struggle Section -->
+    <section id="why-us" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">Why Many Travel Agencies Struggle Online</h2>
+                <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Are you facing these common challenges? You're not alone.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Struggle Cards -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-3">Generic, Repetitive Content</h3>
+                    <p class="text-gray-600">Posting only destination photos and captions like competitors, making you blend in instead of stand out.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-3">Lack of Strategy</h3>
+                    <p class="text-gray-600">No clear content plan or posting schedule, leading to inconsistent engagement and missed opportunities.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-3">Weak Branding</h3>
+                    <p class="text-gray-600">No defined brand voice, colors, or style that makes your agency instantly recognizable and memorable.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-3">No Detail Targeting for Ads</h3>
+                    <p class="text-gray-600">Not reaching the right audience or travelers who are actually ready to book their next adventure.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-3">No Clear Call-to-Action</h3>
+                    <p class="text-gray-600">Failing to guide followers toward inquiries or bookings, leaving potential customers unsure of the next step.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-3">Not Tracking Results</h3>
+                    <p class="text-gray-600">Posting without measuring what's working and what's not, making it impossible to improve and grow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      if (plane) {
-        // move plane right and up, rotate slightly, and scale on scroll
-        var progress = scrolled / maxScroll;
-        var translateX = progress * 180;
-        var translateY = -progress * 60;
-        var rotate = progress * -14;
-        var scale = 1 + progress * 0.14;
+    <!-- How We Solve It Section -->
+    <section id="services" class="py-20 text-white" style="background-color: var(--dark-blue);">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">Our Solution: Organic + Paid Marketing</h2>
+                <p class="opacity-80 mt-2 max-w-2xl mx-auto">A comprehensive approach to turn your social media into a booking machine.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+                <!-- Solution Items -->
+                <div class="bg-white/10 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Strategy & Planning</h3>
+                    <p class="opacity-80">In-depth market research and a monthly content calendar tailored to your target audience.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Content Creation</h3>
+                    <p class="opacity-80">Professionally designed posts, carousels, and reels with engaging captions that convert.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Brand Identity</h3>
+                    <p class="opacity-80">We define your brand voice and create a consistent visual style that gets you noticed.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Targeted Ad Campaigns</h3>
+                    <p class="opacity-80">Reaching travelers most likely to book using advanced targeting and retargeting strategies.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Community Management</h3>
+                    <p class="opacity-80">Engaging with your followers to build a loyal community and foster trust in your brand.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Analytics & Reporting</h3>
+                    <p class="opacity-80">Monthly reports with key metrics and strategic recommendations for continuous growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        plane.style.transform =
-          'translate(' + translateX + 'px,' + translateY + 'px) rotate(' + rotate + 'deg) scale(' + scale + ')';
-      }
-    });
-  </script>
+    <!-- Service Package Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">The All-in-One Service Package</h2>
+                <p class="text-gray-600 mt-2">Everything you need to succeed, all in one place.</p>
+            </div>
+            <div class="max-w-3xl mx-auto bg-gray-100 p-8 rounded-xl shadow-md">
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-gray-700">
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Competitor & Industry Analysis</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Social Media Deep Analysis</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Social Media Profile Optimization</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Market Research & Strategy</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Content Planning & Design</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Brand Presence Enhancement</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Meta Business Suite Setup</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Pixel Integration</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Paid Campaign Creation</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Community Management</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Analytics & Reporting</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- High-Value Perks Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">High-Value Perks (FREE)</h2>
+                <p class="text-gray-600 mt-2">Start with a boost, on us.</p>
+            </div>
+            <div class="flex flex-col md:flex-row justify-center gap-8">
+                <!-- Perk 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg md:w-1/3 text-center border-t-4" style="border-color: var(--light-blue);">
+                    <h3 class="text-2xl font-bold mb-3" style="color: var(--dark-blue);">FREE Social Media Audit</h3>
+                    <p class="text-gray-600">A quick 5-point check of your profiles to see what's working, what's not, and how to boost booking inquiries fast.</p>
+                </div>
+                <!-- Perk 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg md:w-1/3 text-center border-t-4" style="border-color: var(--dark-blue);">
+                    <h3 class="text-2xl font-bold mb-3" style="color: var(--dark-blue);">7 Days of FREE Content</h3>
+                    <p class="text-gray-600">One week of professionally designed, travel-themed posts, tailored to your brand, in exchange for your honest feedback.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Risk-Free Start Section -->
+    <section class="py-20 text-white" style="background-color: #003b8a;"> <!-- Slightly lighter dark blue for better contrast -->
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-8">A Risk-Free Start You'll Love</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <div class="p-6 rounded-lg" style="background-color: var(--dark-blue);">
+                    <h3 class="text-xl font-semibold text-[var(--light-blue)]">40% Upfront</h3>
+                    <p class="text-gray-300 mt-2">Only 40% upfront in the first month. Pay the rest with your 2nd month invoice.</p>
+                </div>
+                <div class="p-6 rounded-lg" style="background-color: var(--dark-blue);">
+                    <h3 class="text-xl font-semibold text-[var(--light-blue)]">20% Loyalty Bonus</h3>
+                    <p class="text-gray-300 mt-2">Get 20% off your second month as a thank you for your partnership.</p>
+                </div>
+                <div class="p-6 rounded-lg" style="background-color: var(--dark-blue);">
+                    <h3 class="text-xl font-semibold text-[var(--light-blue)]">Save $50/Month</h3>
+                    <p class="text-gray-300 mt-2">Enjoy a discount when you pay quarterly in advance.</p>
+                </div>
+                <div class="p-6 rounded-lg" style="background-color: var(--dark-blue);">
+                    <h3 class="text-xl font-semibold text-[var(--light-blue)]">Performance Guarantee</h3>
+                    <p class="text-gray-300 mt-2">If you see no improvements, we work for free until you get results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold text-gray-900">Ready to Get More Bookings?</h2>
+                <p class="text-gray-600 mt-2 mb-8">Let's chat about how I can help your agency grow.</p>
+                <a href="mailto:contact@amadigimedia.com" class="text-white text-lg font-semibold px-8 py-4 rounded-full transition duration-300 transform hover:scale-105 shadow-lg" style="background-color: var(--dark-blue);">Schedule Your Free Consultation</a>
+            </div>
+        </div>
+    </section>
+
+     <!-- Footer -->
+    <footer class="text-white" style="background-color: #002c6b;"> <!-- Darkest blue for footer -->
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2024 AMA DigiMedia. All Rights Reserved.</p>
+            <p class="text-gray-400 mt-2">Powered by AMA DigiMedia</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-white">Email</a>
+                <a href="#" class="text-gray-400 hover:text-white">LinkedIn</a>
+                <a href="#" class="text-gray-400 hover:text-white">Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
