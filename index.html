@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMA DigiMedia - Get More Bookings for Your Travel Agency</title>
+    <title>Get More Bookings for Your Travel Agency</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,17 +21,17 @@
             position: relative;
             overflow: hidden;
         }
-        .plane {
+        /* .plane {
             position: absolute;
-            bottom: 20%;
-            left: -150px; /* Start off-screen */
-            width: 150px;
+            bottom: 20%; */
+            /* left: -150px; Start off-screen */
+            /* width: 150px;
             height: auto;
             animation: fly 15s linear infinite;
             z-index: 10;
-        }
+        } */
 
-        @keyframes fly {
+        /* @keyframes fly {
             0% {
                 transform: translate(0, 0) rotate(15deg);
             }
@@ -42,7 +42,7 @@
                 transform: translate(calc(100vw + 100px), -100px) rotate(5deg);
                 opacity: 0;
             }
-        }
+        } */
         
         .hero-content {
             z-index: 20;
@@ -56,7 +56,7 @@
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="text-2xl font-bold text-gray-900">
-                    <a href="#" style="color: var(--dark-blue);">AMA DigiMedia</a>
+                    <a href="#" style="color: var(--dark-blue);">Get More Bookings</a>
                 </div>
                 <nav class="hidden md:flex items-center space-x-8">
                     <a href="#about" class="text-gray-600 hover:text-[var(--dark-blue)] transition duration-300">About Me</a>
@@ -79,18 +79,22 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="h-screen flex items-center justify-center text-white hero-section">
-        <!-- Aeroplane Animation -->
-        <svg class="plane" viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
-            <path d="M448 336v-40L288 192V79.2c0-17.7-21.5-26.5-34.5-13.5L216 103V40c0-13.3-10.7-24-24-24s-24 10.7-24 24v63l-37.5-37.5c-12-12-34.5-3.3-34.5 13.5V192L32 296v40l160-48v112l-48 32v32l80-16 80 16v-32l-48-32V288l160 48z"/>
-        </svg>
+    <div style="height:500vh;">
+        <div id="threejs-container" style="position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;"></div>
+        <section id="home" class="h-[500vh] flex items-center justify-center text-white hero-section">
+            <!-- Three.js Container -->
+            <!-- <div id="threejs-container" class="absolute inset-0"></div> -->
+            <!-- Add extra page height so scrolling works -->
 
-        <div class="text-center relative hero-content px-4">
-            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">I Help Travel Agencies Get More Inquiries & Bookings</h1>
-            <p class="text-lg md:text-2xl mb-8 text-gray-200">...through strategic social media marketing.</p>
-            <a href="#contact" class="text-[var(--dark-blue)] text-lg font-semibold px-8 py-4 rounded-full transition duration-300 transform hover:scale-105 shadow-lg" style="background-color: var(--light-blue);">GET MORE BOOKINGS</a>
-        </div>
-    </section>
+            
+    
+            <div class="text-center relative hero-content px-4">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">I Help Travel Agencies Get More Inquiries & Bookings</h1>
+                <p class="text-lg md:text-2xl mb-8 text-gray-200">...through strategic social media marketing.</p>
+                <a href="#contact" class="text-[var(--dark-blue)] text-lg font-semibold px-8 py-4 rounded-full transition duration-300 transform hover:scale-105 shadow-lg" style="background-color: var(--light-blue);">GET MORE BOOKINGS</a>
+            </div>
+        </section>
+    </div>
 
     <!-- About Me Section -->
     <section id="about" class="py-20 bg-white">
@@ -278,6 +282,88 @@
             </div>
         </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+
+
+
+<script>
+    // Three.js Scene Setup
+    const container = document.getElementById('threejs-container');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+    );
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    container.appendChild(renderer.domElement);
+
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    scene.add(ambientLight);
+    const pointLight = new THREE.PointLight(0xffffff, 1);
+    pointLight.position.set(10, 10, 10);
+    scene.add(pointLight);
+
+    // Load OBJ Model
+    const loader = new THREE.OBJLoader();
+    let plane;
+
+    loader.load(
+        './images/1405+Plane_1.obj',
+        (object) => {
+            plane = object;
+            const box = new THREE.Box3().setFromObject(object);
+            const center = box.getCenter(new THREE.Vector3());
+            object.position.sub(center);
+
+            object.scale.set(0.05, 0.05, 0.05);
+            object.position.set(0, 8, 20); // Start above & far away
+            object.rotation.x = -0.2;
+
+            scene.add(object);
+        },
+        (xhr) => console.log((xhr.loaded / xhr.total * 100) + '% loaded'),
+        (err) => console.error('An error occurred:', err)
+    );
+
+    camera.position.z = 5;
+
+    // Scroll handling
+    let scrollPercent = 0;
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        scrollPercent = scrollTop / docHeight; // 0 → 1
+    });
+
+    // Animation loop
+    function animate() {
+        requestAnimationFrame(animate);
+
+        if (plane) {
+            // Path: from top/outside → center → off bottom
+            plane.position.y = 8 - scrollPercent * 24; // faster vertical movement
+            plane.position.z = -20 + scrollPercent * 35; // faster approach
+            plane.rotation.x = -0.2 + scrollPercent * 1.2; // more rotation
+            plane.scale.setScalar(0.05 + scrollPercent * 0.4); // more dramatic size change
+        }
+
+        renderer.render(scene, camera);
+    }
+
+    // Handle resize
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    animate();
+</script>
 
     <script>
         // Mobile menu toggle
