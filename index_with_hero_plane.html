@@ -349,13 +349,13 @@
 
       
 
-    /* const tl = gsap.timeline({
+     const tl = gsap.timeline({
       onUpdate: scene.render,
       scrollTrigger: {
         trigger: '#home',
         start: 'top top',
-        //end: 'bottom top',
-          end: '+=' + document.querySelector('#home').offsetHeight,
+        end: 'bottom bottom',
+          //end: '+=' + document.querySelector('#home').offsetHeight,
         scrub: true,
         onLeave: () => gsap.to(plane.position, { z: 1500, y: 5000, duration: 1.5, ease: 'power4.in' })
       },
@@ -370,34 +370,7 @@
       .to(plane.position, { z: -150, x: 0, y: 0 }, '<')
       .to(plane.rotation, { x: -tau * 0.05, y: tau, z: -tau * 0.1, ease: 'none' })
       .to(plane.position, { x: 0, y: 30, z: 320, ease: 'power1.in' }, '<');
-  } */
-
-      const tl = gsap.timeline({
-  onUpdate: scene.render,
-  scrollTrigger: {
-    trigger: '#home',
-    start: 'top top',
-    end: () => "+=" + document.querySelector('#home').offsetHeight, // full hero height
-    scrub: true,
-  },
-  defaults: { duration: 1, ease: 'power2.inOut' }
-});
-
-tl.to(plane.rotation, { x: tau * 0.25, y: tau * 0.5, z: 0 })
-  .to(plane.position, { z: 60, x: 30 }, '<')
-
-  .to(plane.rotation, { x: tau * 0.35, y: tau * 0.75, z: tau * 0.6 })
-  .to(plane.position, { z: 100, x: 20, y: 0 }, '<')
-
-  .to(plane.rotation, { x: tau * 0.15, y: tau * 0.85, z: 0 })
-  .to(plane.position, { z: -150, x: 0, y: 0 }, '<')
-
-  .to(plane.rotation, { x: -tau * 0.05, y: tau, z: -tau * 0.1, ease: 'none' })
-  .to(plane.position, { x: 0, y: 30, z: 320, ease: 'power1.in' }, '<')
-
-  // ✈️ add final big fly-off inside the scroll, not after
-  .to(plane.position, { z: 1500, y: 500, ease: 'power4.in' });
-  }
+  } 
 
   loadModel();
 </script>
