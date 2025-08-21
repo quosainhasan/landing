@@ -290,8 +290,8 @@
   class Scene {
     constructor(model){
       this.renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true });
-      // this.renderer.setSize(window.innerWidth, window.innerHeight);
-        this.renderer.setSize(container.clientWidth, container.clientHeight);
+      this.renderer.setSize(window.innerWidth, window.innerHeight);
+        // this.renderer.setSize(container.clientWidth, container.clientHeight);
         
       this.renderer.setPixelRatio(window.devicePixelRatio);
       document.getElementById('threejs-container').appendChild(this.renderer.domElement);
