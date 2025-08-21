@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get More Bookings for Your Travel Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --light-blue: #53c8f4;
+            --dark-blue: #004aad;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, var(--dark-blue), var(--light-blue));
+            position: relative;
+            overflow: hidden;
+        }
+        /* .plane {
+            position: absolute;
+            bottom: 20%; */
+            /* left: -150px; Start off-screen */
+            /* width: 150px;
+            height: auto;
+            animation: fly 15s linear infinite;
+            z-index: 10;
+        } */
+
+        /* @keyframes fly {
+            0% {
+                transform: translate(0, 0) rotate(15deg);
+            }
+            50% {
+                transform: translate(calc(100vw + 100px), -100px) rotate(5deg);
+            }
+            100% {
+                transform: translate(calc(100vw + 100px), -100px) rotate(5deg);
+                opacity: 0;
+            }
+        } */
+        
+        .hero-content {
+            z-index: 20;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-md">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-gray-900">
+                    <a href="#" style="color: var(--dark-blue);">Get More Bookings</a>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-600 hover:text-[var(--dark-blue)] transition duration-300">About Me</a>
+                    <a href="#services" class="text-gray-600 hover:text-[var(--dark-blue)] transition duration-300">Services</a>
+                    <a href="#why-us" class="text-gray-600 hover:text-[var(--dark-blue)] transition duration-300">Why Us</a>
+                    <a href="#contact" class="text-white px-5 py-2 rounded-full transition duration-300 shadow-sm" style="background-color: var(--dark-blue); hover:opacity: 0.9;">Get in Touch</a>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#about" class="block py-2 text-gray-600 hover:text-[var(--dark-blue)]">About Me</a>
+            <a href="#services" class="block py-2 text-gray-600 hover:text-[var(--dark-blue)]">Services</a>
+            <a href="#why-us" class="block py-2 text-gray-600 hover:text-[var(--dark-blue)]">Why Us</a>
+            <a href="#contact" class="block mt-2 text-white text-center px-5 py-2 rounded-full" style="background-color: var(--dark-blue);">Get in Touch</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+<section id="home" class="hero-section h-[100vh] flex items-center justify-center text-white relative overflow-hidden">
+  <!-- Three.js container -->
+  <div id="threejs-container" class="absolute inset-0 z-0"></div>
+
+  <div class="text-center relative z-10 hero-content px-4">
+    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">I Help Travel Agencies Get More Inquiries & Bookings</h1>
+    <p class="text-lg md:text-2xl mb-8 text-gray-200">...through strategic social media marketing.</p>
+    <a href="#contact" class="text-[var(--dark-blue)] text-lg font-semibold px-8 py-4 rounded-full transition duration-300 transform hover:scale-105 shadow-lg" style="background-color: var(--light-blue);">GET MORE BOOKINGS</a>
+  </div>
+</section>
+
+<!-- About Me Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" alt="Marketing expert for travel agencies" class="rounded-2xl shadow-2xl w-full h-auto object-cover">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">My Journey to Fueling Your Growth</h2>
+                    <p class="text-gray-600 mb-4">At 17, my first flight ignited a lifelong passion for travel. Years later, my journey led me into social media marketing, and I saw a clear gap: many travel agencies struggled to stand out and secure consistent bookings.</p>
+                    <p class="text-gray-600 mb-4">That's when it all came together. I merged my marketing expertise with my love for travel.</p>
+                    <p class="text-gray-600 font-semibold" style="color: var(--dark-blue);">Today, I help travel agencies scale through compelling content, data-driven strategies, and a steady flow of inquiries. For me, it's more than marketing—it's about taking your agency to new heights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Agencies Struggle Section -->
+    <section id="why-us" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">Why Many Travel Agencies Struggle Online</h2>
+                <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Are you facing these common challenges? You're not alone.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Struggle Cards -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-3">Generic, Repetitive Content</h3>
+                    <p class="text-gray-600">Posting only destination photos and captions like competitors, making you blend in instead of stand out.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-3">Lack of Strategy</h3>
+                    <p class="text-gray-600">No clear content plan or posting schedule, leading to inconsistent engagement and missed opportunities.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-3">Weak Branding</h3>
+                    <p class="text-gray-600">No defined brand voice, colors, or style that makes your agency instantly recognizable and memorable.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-3">No Detail Targeting for Ads</h3>
+                    <p class="text-gray-600">Not reaching the right audience or travelers who are actually ready to book their next adventure.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-3">No Clear Call-to-Action</h3>
+                    <p class="text-gray-600">Failing to guide followers toward inquiries or bookings, leaving potential customers unsure of the next step.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-3">Not Tracking Results</h3>
+                    <p class="text-gray-600">Posting without measuring what's working and what's not, making it impossible to improve and grow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Solve It Section -->
+    <section id="services" class="py-20 text-white" style="background-color: var(--dark-blue);">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">Our Solution: Organic + Paid Marketing</h2>
+                <p class="opacity-80 mt-2 max-w-2xl mx-auto">A comprehensive approach to turn your social media into a booking machine.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+                <!-- Solution Items -->
+                <div class="bg-white/10 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Strategy & Planning</h3>
+                    <p class="opacity-80">In-depth market research and a monthly content calendar tailored to your target audience.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Content Creation</h3>
+                    <p class="opacity-80">Professionally designed posts, carousels, and reels with engaging captions that convert.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Brand Identity</h3>
+                    <p class="opacity-80">We define your brand voice and create a consistent visual style that gets you noticed.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Targeted Ad Campaigns</h3>
+                    <p class="opacity-80">Reaching travelers most likely to book using advanced targeting and retargeting strategies.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Community Management</h3>
+                    <p class="opacity-80">Engaging with your followers to build a loyal community and foster trust in your brand.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Analytics & Reporting</h3>
+                    <p class="opacity-80">Monthly reports with key metrics and strategic recommendations for continuous growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Package Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">The All-in-One Service Package</h2>
+                <p class="text-gray-600 mt-2">Everything you need to succeed, all in one place.</p>
+            </div>
+            <div class="max-w-3xl mx-auto bg-gray-100 p-8 rounded-xl shadow-md">
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-gray-700">
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Competitor & Industry Analysis</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Social Media Deep Analysis</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Social Media Profile Optimization</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Market Research & Strategy</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Content Planning & Design</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Brand Presence Enhancement</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Meta Business Suite Setup</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Pixel Integration</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Paid Campaign Creation</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Community Management</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Analytics & Reporting</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- High-Value Perks Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">High-Value Perks (FREE)</h2>
+                <p class="text-gray-600 mt-2">Start with a boost, on us.</p>
+            </div>
+            <div class="flex flex-col md:flex-row justify-center gap-8">
+                <!-- Perk 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg md:w-1/3 text-center border-t-4" style="border-color: var(--light-blue);">
+                    <h3 class="text-2xl font-bold mb-3" style="color: var(--dark-blue);">FREE Social Media Audit</h3>
+                    <p class="text-gray-600">A quick 5-point check of your profiles to see what's working, what's not, and how to boost booking inquiries fast.</p>
+                </div>
+                <!-- Perk 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg md:w-1/3 text-center border-t-4" style="border-color: var(--dark-blue);">
+                    <h3 class="text-2xl font-bold mb-3" style="color: var(--dark-blue);">7 Days of FREE Content</h3>
+                    <p class="text-gray-600">One week of professionally designed, travel-themed posts, tailored to your brand, in exchange for your honest feedback.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risk-Free Start Section -->
+    <section class="py-20 text-white" style="background-color: #003b8a;"> <!-- Slightly lighter dark blue for better contrast -->
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-8">A Risk-Free Start You'll Love</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <div class="p-6 rounded-lg" style="background-color: var(--dark-blue);">
+                    <h3 class="text-xl font-semibold text-[var(--light-blue)]">40% Upfront</h3>
+                    <p class="text-gray-300 mt-2">Only 40% upfront in the first month. Pay the rest with your 2nd month invoice.</p>
+                </div>
+                <div class="p-6 rounded-lg" style="background-color: var(--dark-blue);">
+                    <h3 class="text-xl font-semibold text-[var(--light-blue)]">20% Loyalty Bonus</h3>
+                    <p class="text-gray-300 mt-2">Get 20% off your second month as a thank you for your partnership.</p>
+                </div>
+                <div class="p-6 rounded-lg" style="background-color: var(--dark-blue);">
+                    <h3 class="text-xl font-semibold text-[var(--light-blue)]">Save $50/Month</h3>
+                    <p class="text-gray-300 mt-2">Enjoy a discount when you pay quarterly in advance.</p>
+                </div>
+                <div class="p-6 rounded-lg" style="background-color: var(--dark-blue);">
+                    <h3 class="text-xl font-semibold text-[var(--light-blue)]">Performance Guarantee</h3>
+                    <p class="text-gray-300 mt-2">If you see no improvements, we work for free until you get results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold text-gray-900">Ready to Get More Bookings?</h2>
+                <p class="text-gray-600 mt-2 mb-8">Let's chat about how I can help your agency grow.</p>
+                <a href="mailto:contact@amadigimedia.com" class="text-white text-lg font-semibold px-8 py-4 rounded-full transition duration-300 transform hover:scale-105 shadow-lg" style="background-color: var(--dark-blue);">Schedule Your Free Consultation</a>
+            </div>
+        </div>
+    </section>
+
+     <!-- Footer -->
+    <footer class="text-white" style="background-color: #002c6b;"> <!-- Darkest blue for footer -->
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2024 AMA DigiMedia. All Rights Reserved.</p>
+            <p class="text-gray-400 mt-2">Powered by AMA DigiMedia</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-white">Email</a>
+                <a href="#" class="text-gray-400 hover:text-white">LinkedIn</a>
+                <a href="#" class="text-gray-400 hover:text-white">Facebook</a>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+  class Scene {
+    constructor(model){
+      this.renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true });
+      this.renderer.setSize(window.innerWidth, window.innerHeight);
+      this.renderer.setPixelRatio(window.devicePixelRatio);
+      document.getElementById('threejs-container').appendChild(this.renderer.domElement);
+
+      this.scene = new THREE.Scene();
+      this.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
+      this.camera.position.set(0, 0, 180);
+
+      const light = new THREE.PointLight(0xffffff, 0.75);
+      light.position.set(70, -20, 150);
+      this.scene.add(light);
+
+      const softLight = new THREE.AmbientLight(0xffffff, 1.5);
+      this.scene.add(softLight);
+
+      this.modelGroup = new THREE.Group();
+      this.modelGroup.add(model);
+      this.scene.add(this.modelGroup);
+
+      window.addEventListener('resize', this.onResize);
+      this.onResize();
+    }
+    render = () => this.renderer.render(this.scene, this.camera);
+    onResize = () => {
+      this.camera.aspect = window.innerWidth / window.innerHeight;
+      this.camera.updateProjectionMatrix();
+      this.renderer.setSize(window.innerWidth, window.innerHeight);
+      this.render();
+    }
+  }
+
+  function loadModel(){
+    gsap.registerPlugin(ScrollTrigger);
+
+    const loader = new THREE.OBJLoader();
+    loader.load('./images/1405+Plane_1.obj', function(object){
+      object.traverse(c => {
+        if (c.isMesh){
+          c.material = new THREE.MeshPhongMaterial({ color: 0x171511, specular: 0xD0CBC7, shininess: 5, flatShading: true });
+        }
+      });
+      setupAnimation(object);
+    });
+  }
+
+  function setupAnimation(model){
+    const scene = new Scene(model);
+    const plane = scene.modelGroup;
+    const tau = Math.PI * 2;
+
+    gsap.set(plane.rotation, { y: tau * 0.5, x: tau * 0.25, z: 0 });
+    gsap.set(plane.position, { x: 0, y: -10, z: 30 });
+
+    scene.render();
+
+    const tl = gsap.timeline({
+      onUpdate: scene.render,
+      scrollTrigger: {
+        trigger: '#home',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+        onLeave: () => gsap.to(plane.position, { z: 1500, y: 300, duration: 1.5, ease: 'power4.in' })
+      },
+      defaults: { duration: 1, ease: 'power2.inOut' }
+    });
+
+    tl.to(plane.rotation, { x: tau * 0.25, y: tau * 0.5, z: 0 })
+      .to(plane.position, { z: 60, x: 30 }, '<')
+      .to(plane.rotation, { x: tau * 0.35, y: tau * 0.75, z: tau * 0.6 })
+      .to(plane.position, { z: 100, x: 20, y: 0 }, '<')
+      .to(plane.rotation, { x: tau * 0.15, y: tau * 0.85, z: 0 })
+      .to(plane.position, { z: -150, x: 0, y: 0 }, '<')
+      .to(plane.rotation, { x: -tau * 0.05, y: tau, z: -tau * 0.1, ease: 'none' })
+      .to(plane.position, { x: 0, y: 30, z: 320, ease: 'power1.in' }, '<');
+  }
+
+  loadModel();
+</script>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
