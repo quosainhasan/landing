@@ -297,8 +297,9 @@
       document.getElementById('threejs-container').appendChild(this.renderer.domElement);
 
       this.scene = new THREE.Scene();
-      this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 3000);
+      this.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
       this.camera.position.set(0, 0, 180);
+        this.camera.lookAt(new THREE.Vector3(0, 5, 0));
 
       const light = new THREE.PointLight(0xffffff, 0.75);
       light.position.set(70, -20, 150);
@@ -352,12 +353,12 @@
      const tl = gsap.timeline({
       onUpdate: scene.render,
       scrollTrigger: {
-        trigger: '#home',
+        trigger: '.hero-section',
         start: 'top top',
         end: 'bottom top',
           //end: '+=' + document.querySelector('#home').offsetHeight,
         scrub: true,
-        onLeave: () => gsap.to(plane.position, { z: 1500, y: 5000, duration: 1.5, ease: 'power4.in' })
+        onLeave: () => gsap.to(plane.position, { z: 1500, y: 300, duration: 1.5, ease: 'power4.in' })
       },
       defaults: { duration: 1, ease: 'power2.inOut' }
     });
@@ -370,6 +371,12 @@
       .to(plane.position, { z: -150, x: 0, y: 0 }, '<')
       .to(plane.rotation, { x: -tau * 0.05, y: tau, z: -tau * 0.1, ease: 'none' })
       .to(plane.position, { x: 0, y: 30, z: 320, ease: 'power1.in' }, '<');
+
+      gsap.to('.hero-section', {
+      scale: 1.05,
+      transformOrigin: '50% 0%',
+      scrollTrigger: { trigger: '.sunset', start: 'top bottom', end: 'bottom top', scrub: true }
+    });
   } 
 
   loadModel();
