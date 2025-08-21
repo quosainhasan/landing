@@ -290,12 +290,14 @@
   class Scene {
     constructor(model){
       this.renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true });
-      this.renderer.setSize(window.innerWidth, window.innerHeight);
+      // this.renderer.setSize(window.innerWidth, window.innerHeight);
+        this.renderer.setSize(container.clientWidth, container.clientHeight);
+        
       this.renderer.setPixelRatio(window.devicePixelRatio);
       document.getElementById('threejs-container').appendChild(this.renderer.domElement);
 
       this.scene = new THREE.Scene();
-      this.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
+      this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 3000);
       this.camera.position.set(0, 0, 180);
 
       const light = new THREE.PointLight(0xffffff, 0.75);
